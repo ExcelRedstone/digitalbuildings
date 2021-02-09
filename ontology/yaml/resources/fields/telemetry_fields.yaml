@@ -41,6 +41,7 @@ literals:
 - compressor_run_status:
   - ON
   - OFF
+  - UNKNOWN
 - compressor_speed_percentage_sensor
 - refrigerant_condenser_saturation_temperature_sensor
 - condensing_return_water_temperature_sensor
@@ -75,6 +76,7 @@ literals:
 - economizer_mode:
   - ON
   - OFF
+  - AUTO
 - evaporator_pressure_sensor
 - refrigerant_evaporator_saturation_temperature_sensor
 - exhaust_air_damper_percentage_command
@@ -87,6 +89,7 @@ literals:
 - exhaust_fan_run_status:
   - ON
   - OFF
+  - UNKNOWN
 - exhaust_fan_speed_frequency_sensor
 - exhaust_fan_speed_percentage_command
 - exhaust_fan_speed_percentage_sensor
@@ -154,6 +157,7 @@ literals:
 - supply_fan_run_status:
   - ON
   - OFF
+  - UNKNOWN
 - supply_fan_speed_frequency_command
 - supply_fan_speed_frequency_sensor
 - supply_fan_speed_percentage_command
@@ -331,22 +335,18 @@ literals:
 - exercise_mode:
   - ON
   - OFF
-- fabric_protection_alarm_status:
-  - ON
-  - OFF
-- filter_alarm_status:
-  - ON
-  - OFF
-- master_alarm_status:
-  - ON
-  - OFF
+
+# Alarms updated to convert the alarm subfield to a point type from measurement descriptor.
+
 - run_mode:
-  - AUTO
   - COMMISSIONING
   - FLUSHING
   - HEATING
   - COOLING
   - NEUTRAL
+  - OFF
+  - AUTO
+  - MANUAL
 - dial_resistance_sensor
 - zone_occupancy_status:
   - OCCUPIED
@@ -356,6 +356,7 @@ literals:
 
 ## Added on 12/12
 - leaving_cooling_coil_temperature_sensor
+- leaving_cooling_coil_temperature_setpoint
 - heating_water_valve_command:
   - OPEN
   - CLOSED
@@ -470,7 +471,7 @@ literals:
 - energy_accumulator
 - average_line_current_sensor
 - average_line_neutral_voltage_sensor
-- average_line_voltage_sensor
+- average_inter_line_voltage_sensor
 - phase1_line_current_sensor
 - phase1_neutral_line_voltage_sensor
 - phase1_phase2_line_voltage_sensor
@@ -490,7 +491,7 @@ literals:
 - reactive_power_sensor
 
 # Added on 2019/06/27 for Enlighted
-- dimmer_percentage_command
+- dimmer_percentage_command # Should be adjusted to brightness_percentage_command
 
 
 # Added on 2019/08/13 primarily for GVC
@@ -525,8 +526,6 @@ literals:
 # Added on 2019/09/26 for US-NYC-9TH
 - condensing_water_bypass_valve_percentage_command
 - condensing_water_valve_percentage_command
-- occupied_zone_air_heating_temperature_setpoint
-- unoccupied_zone_air_heating_temperature_setpoint
 
 - heater_run_status: # Added 10/2/2019
   - ON
@@ -566,14 +565,20 @@ literals:
 
 # Added 2/10/2020
 - supply_water_isolation_valve_command
-- supply_water_isolation_valve_status
+- supply_water_isolation_valve_status:
+  - OPEN
+  - CLOSED
 - return_water_isolation_valve_command
-- return_water_isolation_valve_status
+- return_water_isolation_valve_status:
+  - OPEN
+  - CLOSED
 - chilled_return_water_isolation_valve_command
 - condensing_return_water_isolation_valve_percentage_command
 - condensing_return_water_isolation_valve_percentage_sensor
 - chilled_supply_water_isolation_valve_command
-- chilled_return_water_isolation_valve_status
+- chilled_return_water_isolation_valve_status:
+  - OPEN
+  - CLOSED
 
 # Added 2/11/2020
 - discharge_air_static_pressure_sensor
@@ -583,8 +588,12 @@ literals:
 - heat_exchange_return_water_isolation_valve_command
 - heat_exchange_supply_water_isolation_valve_percentage_command
 - heat_exchange_return_water_isolation_valve_percentage_command
-- heat_exchange_supply_water_isolation_valve_status
-- heat_exchange_return_water_isolation_valve_status
+- heat_exchange_supply_water_isolation_valve_status:
+  - OPEN
+  - CLOSED
+- heat_exchange_return_water_isolation_valve_status:
+  - OPEN
+  - CLOSED
 - heat_exchange_supply_water_isolation_valve_percentage_sensor
 - heat_exchange_return_water_isolation_valve_percentage_sensor
 
@@ -595,11 +604,17 @@ literals:
 # Added 2/24/2020
 - chilled_supply_water_isolation_valve_percentage_sensor
 - chilled_supply_water_isolation_valve_percentage_command
-- chilled_supply_water_isolation_valve_status
-- condensing_return_water_isolation_valve_status
+- chilled_supply_water_isolation_valve_status:
+  - OPEN
+  - CLOSED
+- condensing_return_water_isolation_valve_status:
+  - OPEN
+  - CLOSED
 - condensing_supply_water_isolation_valve_percentage_sensor
 - condensing_supply_water_isolation_valve_percentage_command
-- condensing_supply_water_isolation_valve_status
+- condensing_supply_water_isolation_valve_status:
+  - OPEN
+  - CLOSED
 - condensing_supply_water_isolation_valve_command
 
 

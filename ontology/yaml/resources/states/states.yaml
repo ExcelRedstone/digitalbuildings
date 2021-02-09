@@ -15,6 +15,7 @@
 ON: Powered on.
 OFF: Powered off.
 AUTO: Running under automatic control.
+MANUAL: "Running under manual (hand) control."
 OPEN: Open position, typically for a valve or other pass-though.
 CLOSED: Closed position, typically for a valve or other pass-though.
 LOW: Low speed or output setting.
